@@ -1,0 +1,57 @@
+<div class="root" *ngIf="website">
+  <div class="header text-center">
+    <h4>{{ website.name }}</h4>
+    <hr />
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <p>Prijs per maand: &euro;{{ website.monthlyPrice }}</p>
+      <p>Prijs per advertentie: &euro;{{ website.pricePerAd }}</p>
+    </div>
+
+    <div class="col-md-6 text-center">
+      <p>
+        <a class="btn btn-info" href="{{ URL }}" target="_blank"
+          >Ga naar website <i class="fa fa-external-link"></i
+        ></a>
+      </p>
+      <p *ngIf="(isEmployee$ | async) === false">
+        <a class="btn btn-success" routerLink="/websites/{{ website._id }}/edit">Website aanpassen</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="horse-list-container text-center" *ngIf="website.horses.length === 0">
+    <p><b>Op deze website staan momenteel geen paarden</b></p>
+  </div>
+
+  <div class="horse-list-container text-center" *ngIf="website.horses.length !== 0">
+    <p>Paarden op deze website</p>
+  </div>
+
+  <div class="horse-list" *ngIf="website.horses.length !== 0">
+    <table class="table table-hover">
+      <thead>
+        <th>Naam</th>
+        <th>Status</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let horse of website.horses" [ngClass]="{ 'is-incorrect': horse.status != 'Actief' }">
+          <td>{{ horse.officialName }} ({{ horse.commonName }})</td>
+          <td>{{ horse.status }}</td>
+          <td>
+            <a *ngIf="(isEmployee$ | async) === false" class="delete-horse" (click)="onDeleteHorse(horse._id)"
+              ><i class="fa fa-times-circle"></i
+            ></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center" *ngIf="(isEmployee$ | async) === false">
+    <a class="btn btn-success" routerLink="/websites/{{ website._id }}/horse">Paard toevoegen</a>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="root">
+  <p class="date_added">
+    Toegevoegd op: {{ reservation.activated_on | date: 'dd-MM-yyyy' }}
+    <span *ngIf="reservation.active === 'false'">
+      | <b>Afgelopen op : {{ reservation.deactivated_on | date: 'dd-MM-yyyy' }}</b>
+    </span>
+  </p>
+
+  <div class="row">
+    <div class="col-10">
+      <p class="reservation-title">
+        <b>Reservering voor {{ reservation.horse.officialName }} ({{ reservation.horse.commonName }})</b>
+        <span class="horse-details"
+          >({{ reservation.horse.gender }}, {{ reservation.horse.yearOfBirth }})</span
+        >
+      </p>
+      <p class="customer-details">
+        Gereserveerd door {{ reservation.customerName }} ({{ reservation.customerCountry }})
+      </p>
+    </div>
+
+    <div class="col-2">
+      <p class="reservation-status">
+        <span *ngIf="reservation.active === 'true'"><b>Actief</b></span>
+        <span *ngIf="reservation.active === 'false'"><b>Verlopen</b></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="row options">
+    <p class="crud-options" *ngIf="(isEmployee$ | async) === false">
+      <a routerLink="/reservations/{{ reservation._id }}/edit" *ngIf="reservation.active === 'true'"
+        ><i class="fa fa-edit"></i
+      ></a>
+      <a routerLink="/reservations/{{ reservation._id }}/delete"><i class="fa fa-trash"></i></a>
+    </p>
+  </div>
+</div>

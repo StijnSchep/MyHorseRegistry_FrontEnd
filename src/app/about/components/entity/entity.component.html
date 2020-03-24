@@ -1,0 +1,56 @@
+<h3>Entiteiten</h3>
+<div class="row">
+  <div class="col-sm-12 col-md-3">
+    <p>Paard</p>
+    <ul>
+      <li>id: PaardID</li>
+      <li>NaamOfficieel : string</li>
+      <li>RoepNaam : string</li>
+      <li>Categorie : string</li>
+      <li>Geboortejaar: number</li>
+      <li>Geslacht : string</li>
+      <li>Kleur: string</li>
+      <li>Hoogte: number</li>
+      <li>Prijs: number</li>
+      <li>ToegevoegdOp: Date</li>
+      <li>VerkochtOp: Date</li>
+      <li>Status: string</li>
+      <li>Titel: string</li>
+      <li>Beschrijving: string</li>
+    </ul>
+  </div>
+  <div class="col-sm-12 col-md-3">
+    <p>Website</p>
+    <ul>
+      <li>id: WebsiteID</li>
+      <li>Naam: string</li>
+      <li>URL: string</li>
+      <li>MaandelijksePrijs: number</li>
+      <li>PrijsPerAd: int</li>
+      <li>Paarden: PaardID[]</li>
+    </ul>
+  </div>
+  <div class="col-sm-12 col-md-3">
+    <p>Reservering</p>
+    <ul>
+      <li>id: ReserveringID</li>
+      <li>Paard: PaardID</li>
+      <li>Actief: boolean</li>
+      <li>IngegaanOp: Date</li>
+      <li>VerlopenOp: Date</li>
+      <li>LandVanHerkomst: string</li>
+    </ul>
+  </div>
+  <div class="col-sm-12 col-md-3">
+    <p>Todo</p>
+    <ul>
+      <li>id: TodoID</li>
+      <li>Gebruiker: string</li>
+      <li>ToegevoegdOp: Date</li>
+      <li>AangepastOp: Date</li>
+      <li>Aangepast: boolean</li>
+      <li>Titel: string</li>
+      <li>Beschrijving: string</li>
+    </ul>
+  </div>
+</div>

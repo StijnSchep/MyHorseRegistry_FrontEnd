@@ -1,0 +1,28 @@
+hr {
+  width: 90px;
+  border-bottom: 3px solid #2a4227;
+}
+
+.name-input {
+  width: 25%;
+  margin-top: 50px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.role-input,
+.password-input {
+  width: 25%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  background-color: #2a4227;
+}
+
+.submitcontainer {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}

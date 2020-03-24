@@ -1,0 +1,45 @@
+.root:hover {
+  cursor: pointer;
+  background-color: #ddf7d9;
+}
+
+.root {
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.user {
+  font-size: 12px;
+  margin-right: 5px;
+  font-style: italic;
+}
+
+.created_at {
+  font-size: 12px;
+}
+
+.title {
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.options {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  float: right;
+}
+
+.fa-edit {
+  margin-right: 10px;
+}

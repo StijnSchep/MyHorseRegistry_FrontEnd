@@ -1,0 +1,27 @@
+.btn-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+.btn-link.focus,
+.btn-link.hover {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  box-shadow: none;
+}
+
+nav {
+  background-color: #2a4227;
+}
+
+.navbar-brand {
+  color: #adc6a9;
+}
+
+.logo {
+  height: 100%;
+}
+
+.logout:hover {
+  cursor: pointer;
+}

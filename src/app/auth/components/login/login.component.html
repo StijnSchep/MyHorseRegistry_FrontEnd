@@ -1,0 +1,38 @@
+<form class="form-signin" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="text-center mb-4">
+    <img class="mb-4" src="assets/images/LogoIconOnly.png" width="40%" />
+  </div>
+
+  <div class="form-group">
+    <label for="name">Naam</label>
+    <input
+      [ngClass]="{ 'is-invalid': !nameModel.valid && nameModel.dirty }"
+      [(ngModel)]="name"
+      name="title"
+      type="text"
+      class="form-control"
+      id="name"
+      #nameModel="ngModel"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Wachtwoord</label>
+    <input
+      [ngClass]="{ 'is-invalid': !nameModel.valid && nameModel.dirty }"
+      [(ngModel)]="password"
+      name="password"
+      type="password"
+      class="form-control"
+      id="password"
+      #title="ngModel"
+      required
+    />
+  </div>
+
+  <button id="submitbutton" class="btn btn-info btn-block" [disabled]="!loginForm.form.valid" type="submit">
+    Inloggen
+  </button>
+  <p class="mt-5 mb-3 text-muted text-center">&copy; MyHorseRegistry 2019</p>
+</form>

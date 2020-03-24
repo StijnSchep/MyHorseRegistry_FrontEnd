@@ -1,0 +1,45 @@
+<div class="header text-center">
+  <h4>Gebruiker toevoegen</h4>
+  <hr />
+  <br />
+</div>
+
+<form #userForm="ngForm" *ngIf="user" (ngSubmit)="userForm.valid && onSubmit()">
+  <div class="form-group name-input">
+    <label for="name">Accountnaam</label>
+    <input
+      [ngClass]="{ 'is-invalid': !nameModel.valid && nameModel.dirty }"
+      [(ngModel)]="user.name"
+      name="name"
+      type="text"
+      class="form-control"
+      id="name"
+      #nameModel="ngModel"
+      required
+    />
+  </div>
+
+  <div class="form-group password-input">
+    <label for="password">Wachtwoord voor account</label>
+    <input
+      [ngClass]="{ 'is-invalid': !passwordModel.valid && passwordModel.dirty }"
+      [(ngModel)]="user.password"
+      name="password"
+      type="password"
+      class="form-control"
+      id="password"
+      #passwordModel="ngModel"
+      required
+    />
+  </div>
+
+  <div class="form-group role-input">
+    <label for="role">Accounttype</label><br />
+    <input type="radio" name="role" [(ngModel)]="user.role" [value]="2" required /> Adverteerder
+    <input type="radio" name="role" [(ngModel)]="user.role" [value]="3" required /> Medewerker
+  </div>
+
+  <div class="submitcontainer">
+    <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Toevoegen</button>
+  </div>
+</form>

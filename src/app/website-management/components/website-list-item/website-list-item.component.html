@@ -1,0 +1,26 @@
+<div class="root" [ngClass]="{ 'is-incorrect': incorrectHorse }">
+  <div class="row">
+    <div class="col-8">
+      <a routerLink="/websites/{{ website._id }}">
+        <p class="website-name">
+          <b>{{ website.name }}</b>
+        </p>
+        <p class="website-details">&euro;{{ website.monthlyPrice }}/maand</p>
+        <p class="website-details">&euro;{{ website.pricePerAd }}/advertentie</p>
+        <p class="website-details">Paarden: {{ website.horses.length }}</p>
+      </a>
+    </div>
+
+    <div class="col-4">
+      <p class="website-link">
+        <a href="{{ URL }}" target="_blank"><i class="fa fa-external-link"></i></a>
+        <a
+          class="delete-website"
+          routerLink="/websites/{{ website._id }}/delete"
+          *ngIf="(isEmployee$ | async) === false"
+          ><i class="fa fa-trash"></i
+        ></a>
+      </p>
+    </div>
+  </div>
+</div>

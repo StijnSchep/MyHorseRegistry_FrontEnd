@@ -1,0 +1,9 @@
+<div class="root" *ngIf="website">
+  <div class="warning-label text-center">
+    <i class="fa fa-warning"></i>
+    <p>Weet je zeker dat je {{ website.name }} wil verwijderen?</p>
+
+    <button class="btn btn-link" (click)="onCancel()">Annuleren</button>
+    <button class="btn btn-info" (click)="onDelete()">Verwijderen</button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="root row" *ngIf="todo">
+  <div class="header text-center">
+    <h4>{{ todo.title }}</h4>
+    <hr />
+  </div>
+  <div class="details">
+    <p class="content"><b>Beschrijving</b></p>
+    <p class="content">{{ todo.content }}</p>
+    <br />
+    <br />
+
+    <p class="content"><b>Toegevoegd door:</b> {{ todo.user }}</p>
+    <p class="content"><b>Toegevoegd op:</b> {{ todo.created_at | date: 'dd-MM-yyyy' }}</p>
+    <p class="content" *ngIf="todo.doBefore"><b>Te doen vóór:</b> {{ todo.doBefore | date: 'dd-MM-yyyy' }}</p>
+  </div>
+</div>

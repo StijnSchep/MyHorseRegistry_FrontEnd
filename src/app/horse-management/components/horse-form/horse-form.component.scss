@@ -1,0 +1,97 @@
+.general,
+.adv-details {
+  background-color: white;
+  overflow: auto;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+hr {
+  width: 90px;
+  border-bottom: 3px solid #2a4227;
+}
+
+.header-container {
+  padding: 10px;
+  font-size: 18px;
+  color: #2a4227;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.header-container p {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: #2a4227;
+}
+
+.submitcontainer {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.inputcontainer {
+  padding: 10px;
+}
+
+.officialName {
+  width: 25%;
+  display: inline-block;
+}
+
+.commonName {
+  padding-left: 10px;
+  width: 25%;
+  display: inline-block;
+}
+
+.category {
+  width: 20%;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.gender {
+  width: 10%;
+  display: inline-block;
+}
+
+.status {
+  margin-left: 10px;
+  width: 20%;
+  display: inline-block;
+}
+
+.color {
+  width: 20%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.price {
+  width: 20%;
+  display: inline-block;
+}
+
+.birthyear {
+  margin-left: 20px;
+  width: 20%;
+  display: inline-block;
+}
+
+.height {
+  margin-left: 20px;
+  width: 20%;
+  display: inline-block;
+}
+
+label {
+  font-size: 13px;
+}

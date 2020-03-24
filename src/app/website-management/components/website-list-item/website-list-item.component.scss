@@ -1,0 +1,41 @@
+.root {
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.website-link {
+  text-align: right;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.website-name {
+  font-size: 15px;
+  margin: 0;
+}
+
+.root:hover {
+  cursor: pointer;
+  background-color: #ddf7d9;
+}
+
+.website-details {
+  margin: 0;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.is-incorrect {
+  background-color: #ffa8a8;
+}
+
+.delete-website {
+  margin-left: 10px;
+}

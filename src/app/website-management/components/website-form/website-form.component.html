@@ -1,0 +1,70 @@
+<div class="root row">
+  <div class="header text-center">
+    <h4>{{ title }}</h4>
+    <hr />
+  </div>
+
+  <form #websiteForm="ngForm" *ngIf="website" class="footer" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Naam</label>
+      <input
+        [ngClass]="{ 'is-invalid': !nameForm.valid && nameForm.dirty }"
+        [(ngModel)]="website.name"
+        name="name"
+        type="text"
+        class="form-control"
+        id="name"
+        #nameForm="ngModel"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="url">Website URL</label>
+      <input
+        [ngClass]="{ 'is-invalid': !urlModel.valid && urlModel.dirty }"
+        [(ngModel)]="website.URL"
+        name="url"
+        type="text"
+        class="form-control"
+        id="url"
+        pattern="www[.][-a-z0-9][-a-z0-9]*[.][a-z0-9][/a-z0-9?=&]*"
+        placeholder="e.g. www.sporthorses.nl"
+        #urlModel="ngModel"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="monthlyPrice">Prijs per maand</label>
+      <input
+        [ngClass]="{ 'is-invalid': !monthlyPriceModel.valid && monthlyPriceModel.dirty }"
+        [(ngModel)]="website.monthlyPrice"
+        name="monthlyPrice"
+        type="number"
+        class="form-control"
+        id="monthlyPrice"
+        pattern="^(\+?\d+|-?0+)$"
+        #monthlyPriceModel="ngModel"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="pricePerAd">Prijs per advertentie</label>
+      <input
+        [ngClass]="{ 'is-invalid': !pricePerAdModel.valid && pricePerAdModel.dirty }"
+        [(ngModel)]="website.pricePerAd"
+        name="pricePerAd"
+        type="number"
+        pattern="^(\+?\d+|-?0+)$"
+        class="form-control"
+        id="pricePerAd"
+        #pricePerAdModel="ngModel"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!websiteForm.form.valid">Opslaan</button>
+  </form>
+</div>

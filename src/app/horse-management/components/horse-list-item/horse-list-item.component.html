@@ -1,0 +1,58 @@
+<div class="root">
+  <div class="row">
+    <div class="col-6">
+      <p class="active-reservation" *ngIf="horse.active_reservation">
+        <i class="fa fa-warning"></i> Let op! Dit paard heeft een actieve reservering
+      </p>
+    </div>
+    <div class="col-6">
+      <p class="date_added">
+        Toegevoegd op: {{ horse.date_added | date: 'dd-MM-yyyy'
+        }}<span *ngIf="horse.status === 'Verkocht'">
+          | <b>Verkocht op : {{ horse.date_sold | date: 'dd-MM-yyyy' }}</b></span
+        >
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      <p class="horsename">
+        <b>{{ horse.officialName }} ({{ horse.commonName }})</b>
+      </p>
+      <p class="horsedetails">
+        {{ horse.category }}, {{ horse.gender }}, {{ age }} jaar, {{ horse.height }} cm, {{ horse.color }}
+      </p>
+    </div>
+
+    <div class="col-5">
+      <p class="horsestatus">
+        <b>{{ horse.status }}</b>
+      </p>
+      <p class="horseprice">Prijs: {{ price }}</p>
+    </div>
+  </div>
+  <div class="row options">
+    <div class="col-7 ">
+      <a class="showdetails" (click)="showDetails = !showDetails"
+        >Toon advertentiedetails <i class="fa fa-caret-down" *ngIf="!showDetails"></i
+        ><i class="fa fa-caret-up" *ngIf="showDetails"></i
+      ></a>
+    </div>
+
+    <div class="col-5">
+      <p class="crud-options" *ngIf="(isEmployee$ | async) === false">
+        <a routerLink="/horses/{{ horse._id }}/edit"><i class="fa fa-edit"></i></a>
+        <a routerLink="/horses/{{ horse._id }}/delete"><i class="fa fa-trash"></i></a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="ad-details" *ngIf="showDetails">
+  <span><b>Titel</b></span>
+  <p class="adv-title">{{ horse.title }}</p>
+  <br />
+  <span><b>Beschrijving</b></span>
+  <p class="adv-desc">{{ horse.description }}</p>
+</div>

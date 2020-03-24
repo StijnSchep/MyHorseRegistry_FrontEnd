@@ -1,0 +1,12 @@
+<div class="root" *ngIf="(isEmployee$ | async) === false">
+  <p>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Zoek op paard"
+      [(ngModel)]="filterValue"
+      (ngModelChange)="emitChange()"
+    />
+    <a class="btn btn-success" routerLink="/websites/new">Website toevoegen</a>
+  </p>
+</div>

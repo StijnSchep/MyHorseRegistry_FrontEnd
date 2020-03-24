@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Websites</h2>
+  <br />
+  <br />
+
+  <app-website-list-tools (filter)="filterChanged($event)"></app-website-list-tools>
+  <div class="row">
+    <div class="col-md-4">
+      <app-website-list [filter]="filter"></app-website-list>
+    </div>
+
+    <div class="col-md-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="root row" *ngIf="todo">
+  <div class="warning-label text-center">
+    <i class="fa fa-warning"></i>
+    <p>Weet je zeker dat je "{{ todo.title }}" wil verwijderen?</p>
+
+    <button class="btn btn-info" (click)="onDelete()">Verwijderen</button>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-sm-6 col-md-8 col-lg-9">
+    <h1>Over deze applicatie</h1>
+    <p>
+      Deze applicatie is gemaakt in het kader van het vak 'Clientside web frameworks' van Avans Hogeschool
+      Breda.
+    </p>
+    <br />
+    <h3>{{ appName }}</h3>
+    <p>
+      Een naamloze stoeterij houdt zich bezig met de in- en verkoop van paarden en pony’s. De stoeterij heeft
+      medewerkers die zich bezig houden met het trainen van de dieren en de omgang met klanten, en een
+      adverteerder die zich bezig houdt met het online adverteren van de dieren. De medewerkers van de
+      stoeterij bepalen wat er geadverteerd moet worden, en de adverteerder zorgt ervoor dat het gebeurd.
+      <br />
+      <br />
+      Voor deze stoeterij moet een digitaal systeem komen waarin iedereen de status van de verkoop kan
+      bekijken. Wat dit systeem bij moet houden is als volgt:
+    </p>
+    <ul>
+      <li>
+        Welke <b>paarden en pony’s</b> zijn de verkoop binnen gegaan en wat is hun status (verkocht,
+        gereserveerd of actief)? Per paard worden algemene gegevens opgeslagen zoals de (officiële) naam,
+        leeftijd, schofthoogte, etc… Bij de verkoop moet voor de verkoopwebsites per paard een
+        advertentietitel, beschrijving en prijs opgeslagen worden die door de medewerkers van de stoeterij
+        bedacht worden. Paarden en pony’s kunnen aan het systeem toegevoegd worden door de adverteerder. Als
+        de adverteerder het paard moet invoeren dan moeten de medewerkers de benodigde gegevens via de
+        Todo-lijst kunnen meegeven
+      </li>
+      <br />
+      <li>
+        Van welke <b>verkoopwebsites</b> maakt de adverteerder gebruik? Voor iedere website wordt bijgehouden
+        wat (ongeveer) de maandelijkse vaste lasten zijn, hoeveel een losse advertentie kost en welke paarden
+        er op dat moment op de website staan. Als een paard verkocht / gereserveerd is, maar nog wel bij een
+        website vermeld staat, dan geeft het systeem hier een melding van. Het beheer van de websites is de
+        taak van de adverteerder. De medewerkers mogen alleen websites inzien, maar niets wijzigen.
+      </li>
+      <br />
+      <li>
+        Klanten kunnen voor een bepaald bedrag een paard of pony tijdelijk uit de verkoop houden in de vorm
+        van een <b>reservering</b>, waardoor ze niet bang hoeven te zijn dat een paard al verkocht is. Voor de
+        reserveringen moet bijgehouden worden bij welk paard de reservering hoort, wanneer de reservering
+        begonnen is en of de reservering nog actief is. Als de reservering afgelopen is moet ook bijgehouden
+        worden wanneer deze is afgelopen. Voor de stoeterij is het interessant om te weten uit welke landen de
+        klanten komen. Per reservering wordt hiervoor bijgehouden uit welk land de reservering komt. Het is de
+        taak van de adverteerder om reserveringen in het systeem te voeren. Medewerkers mogen de reserveringen
+        alleen inzien.
+      </li>
+      <br />
+      <li>
+        Voor de stoeterij is het belangrijk om een duidelijke communicatie te hebben tussen de medewerkers en
+        de adverteerder. De verkoop gaat snel en er moeten vrijwel dagelijks aanpassingen doorgevoerd worden.
+        Deze aanpassingen kunnen bijvoorbeeld gaan over een nieuw paard, een paard dat verkocht is of een
+        advertentiebeschrijving die toch niet helemaal lekker leest. Om de communicatie duidelijk te maken
+        moet het systeem een <b>Todo-lijst</b> bevatten, waarin de medewerkers taken voor de adverteerder
+        kunnen neerleggen. Het aanmaken van Todo’s mag alleen gedaan worden door de medewerkers. De
+        adverteerder mag niet zijn eigen taken bepalen. Als een todo voltooid is kan deze verwijderd worden.
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card">
+      <div class="d-flex justify-content-center align-items-center">
+        <img src="{{ imagePath }}" class="card-img-top rounded-circle border profile-pic" alt="..." />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ studentName }}</h5>
+        <p class="card-text">Studentnummer: {{ studentNumber }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-about-entity></app-about-entity>
+
+<div class="row">
+  <div class="col-12">
+    <h3>Use Cases</h3>
+    <p>De applicatie biedt de volgende functionaliteit.</p>
+    <div *ngFor="let UC of useCases">
+      <app-about-usecase [useCase]="UC"></app-about-usecase>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Reserveringen</h2>
+  <br />
+  <br />
+  <app-reservation-list-tools></app-reservation-list-tools>
+
+  <app-reservation-list-item
+    *ngFor="let reservation of reservations"
+    [reservation]="reservation"
+  ></app-reservation-list-item>
+</div>

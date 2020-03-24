@@ -1,0 +1,30 @@
+<div class="root">
+  <div class="header text-center">
+    <h4>Paard toevoegen</h4>
+    <hr />
+  </div>
+  <br />
+
+  <form #horseForm="ngForm" *ngIf="horses" (ngSubmit)="onSubmit()">
+    <div class="form-group horse-selector text-center">
+      Selecteer een paard om toe te voegen
+      <br /><br />
+      <select
+        class="form-control"
+        id="horse"
+        name="selectedHorse"
+        [(ngModel)]="selectedHorseId"
+        #horse="ngModel"
+        required
+      >
+        <option *ngFor="let horse of horses" [value]="horse._id">
+          {{ horse.officialName }} ({{ horse.commonName }})
+        </option>
+      </select>
+    </div>
+
+    <div class="submitcontainer">
+      <button type="submit" class="btn btn-success" [disabled]="!horseForm.form.valid">Toevoegen</button>
+    </div>
+  </form>
+</div>

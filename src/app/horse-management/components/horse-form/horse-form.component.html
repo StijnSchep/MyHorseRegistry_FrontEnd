@@ -1,0 +1,196 @@
+<div class="header text-center">
+  <h4 *ngIf="!editMode">Nieuw Paard</h4>
+  <h4 *ngIf="editMode">Paard Aanpassen</h4>
+  <hr />
+  <br />
+</div>
+
+<form #horseForm="ngForm" *ngIf="horse" (ngSubmit)="horseForm.valid && onSubmit()">
+  <div class="general">
+    <div class="header-container">
+      <p><b>Algemene gegevens</b></p>
+    </div>
+
+    <div class="inputcontainer">
+      <div class="form-group officialName">
+        <label for="officialName">Officiële naam</label>
+        <input
+          [ngClass]="{ 'is-invalid': !officialName.valid && officialName.dirty }"
+          [(ngModel)]="horse.officialName"
+          name="officialName"
+          type="text"
+          class="form-control"
+          id="officialname"
+          #officialName="ngModel"
+          required
+        />
+      </div>
+
+      <div class="form-group commonName">
+        <label for="commonName">Roepnaam</label>
+        <input
+          [ngClass]="{ 'is-invalid': !commonName.valid && commonName.dirty }"
+          [(ngModel)]="horse.commonName"
+          name="commonName"
+          type="text"
+          class="form-control"
+          id="commonname"
+          #commonName="ngModel"
+          required
+        />
+      </div>
+
+      <div class="form-group category">
+        <label for="category">Categorie</label>
+        <select
+          [ngClass]="{ 'is-invalid': !category.valid && category.dirty }"
+          class="form-control"
+          id="cat"
+          name="category"
+          [(ngModel)]="horse.category"
+          #category="ngModel"
+          required
+        >
+          <option *ngFor="let cat of categories" [value]="cat">
+            {{ cat }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group status" *ngIf="editMode">
+        <label for="status">Status</label>
+        <select
+          class="form-control"
+          id="status"
+          name="status"
+          [(ngModel)]="horse.status"
+          #status="ngModel"
+          required
+        >
+          <option *ngFor="let stat of statuslist" [value]="stat">
+            {{ stat }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <div class="form-group gender">
+          <label for="gender">Geslacht</label>
+          <select
+            class="form-control"
+            id="gender"
+            name="gender"
+            [(ngModel)]="horse.gender"
+            #gender="ngModel"
+            required
+          >
+            <option *ngFor="let gen of genderlist" [value]="gen">
+              {{ gen }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group color">
+          <label for="color">Kleur</label>
+          <select
+            class="form-control"
+            id="color"
+            name="color"
+            [(ngModel)]="horse.color"
+            #color="ngModel"
+            required
+          >
+            <option *ngFor="let color of colors" [value]="color">
+              {{ color }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group birthyear">
+          <label for="birthyear">Geboortejaar</label>
+          <select
+            class="form-control"
+            id="birthyear"
+            name="birthyear"
+            [(ngModel)]="year"
+            #birthYear="ngModel"
+            required
+          >
+            <option *ngFor="let year of yearList" [value]="year">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group price">
+        <label for="price">Verkoopprijs</label>
+        <input
+          [ngClass]="{ 'is-invalid': !priceModel.valid && priceModel.dirty }"
+          [(ngModel)]="horse.price"
+          name="price"
+          type="number"
+          class="form-control"
+          id="price"
+          pattern="^(\+?\d+|-?0+)$"
+          #priceModel="ngModel"
+          required
+        />
+      </div>
+
+      <div class="form-group height">
+        <label for="birthyear">Stokmaat (cm)</label>
+        <input
+          [ngClass]="{ 'is-invalid': !heightModel.valid && heightModel.dirty }"
+          [(ngModel)]="horse.height"
+          name="height"
+          type="number"
+          class="form-control"
+          id="height"
+          pattern="[1-9][0-9][0-9]?"
+          #heightModel="ngModel"
+          required
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="adv-details">
+    <div class="header-container">
+      <p><b>Advertentie</b></p>
+    </div>
+
+    <div class="inputcontainer">
+      <div class="form-group">
+        <label for="title">Advertentie titel</label>
+        <input
+          [ngClass]="{ 'is-invalid': !titleModel.valid && titleModel.dirty }"
+          [(ngModel)]="horse.title"
+          name="title"
+          type="text"
+          class="form-control"
+          id="title"
+          #titleModel="ngModel"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Advertentie beschrijving</label>
+        <textarea
+          [ngClass]="{ 'is-invalid': !descriptionModel.valid && descriptionModel.dirty }"
+          [(ngModel)]="horse.description"
+          name="description"
+          type="text"
+          class="form-control"
+          id="description"
+          #descriptionModel="ngModel"
+          rows="10"
+          required
+        ></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="submitcontainer">
+    <button type="submit" class="btn btn-success" [disabled]="!horseForm.form.valid">Opslaan</button>
+  </div>
+</form>

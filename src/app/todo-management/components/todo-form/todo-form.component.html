@@ -1,0 +1,58 @@
+<div class="root row">
+  <div class="header text-center">
+    <h4 *ngIf="!editMode">{{ title }}</h4>
+    <h4 *ngIf="editMode">{{ todo.title }}</h4>
+    <hr />
+  </div>
+
+  <form #todoForm="ngForm" *ngIf="todo" class="footer" (ngSubmit)="todoForm.valid && onSubmit()">
+    <div class="form-group" *ngIf="!editMode">
+      <label for="title">Titel</label>
+      <input
+        [ngClass]="{ 'is-invalid': !titleModel.valid && titleModel.dirty }"
+        [(ngModel)]="todo.title"
+        name="title"
+        type="text"
+        class="form-control"
+        id="title"
+        #titleModel="ngModel"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Beschrijving</label>
+      <textarea
+        [ngClass]="{ 'is-invalid': !descriptionModel.valid && descriptionModel.dirty }"
+        [(ngModel)]="todo.content"
+        name="content"
+        type="text"
+        class="form-control"
+        id="content"
+        #descriptionModel="ngModel"
+        required
+        rows="6"
+      >
+      </textarea>
+    </div>
+
+    <div class="form-group datepicker">
+      <label for="date">Te doen vóór: </label>
+      <input
+        [ngClass]="{ 'is-invalid': !dateModel.valid && dateModel.dirty }"
+        [(ngModel)]="todo.doBefore"
+        name="date"
+        type="date"
+        class="form-control"
+        id="date"
+        #dateModel="ngModel"
+        min="{{ minDate | date: 'yyyy-MM-dd' }}"
+        required
+      />
+    </div>
+
+    <p class="text-center">
+      <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid">Opslaan</button>
+    </p>
+  </form>
+</div>

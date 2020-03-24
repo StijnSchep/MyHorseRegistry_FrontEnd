@@ -1,0 +1,64 @@
+.root {
+  background-color: white;
+  overflow: auto;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.date_added {
+  padding-top: 10px;
+  padding-right: 20px;
+  margin-bottom: 5px;
+  text-align: right;
+  color: gray;
+  font-size: 11px;
+}
+
+.row {
+  width: 100%;
+}
+
+.col-5 {
+  padding-right: 0;
+}
+
+.reservation-title {
+  font-size: 20px;
+  padding-left: 10px;
+  margin-bottom: 0;
+}
+
+.customer-details,
+.horse-details {
+  font-size: 13px;
+  padding-left: 10px;
+}
+
+.reservation-status {
+  text-align: right;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.options {
+  border-top: 1px solid #cdcdcd;
+}
+
+.crud-options {
+  font-size: 13px;
+  text-align: right;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.fa-edit {
+  margin-right: 10px;
+}
+
+.fa {
+  color: black;
+}

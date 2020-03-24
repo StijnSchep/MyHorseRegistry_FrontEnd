@@ -1,0 +1,78 @@
+<div class="header text-center">
+  <h4 *ngIf="!editMode">Nieuwe reservering</h4>
+  <h4 *ngIf="editMode">
+    Reservering voor {{ reservation.horse.officialName }} ({{ reservation.horse.commonName }})
+  </h4>
+  <hr />
+
+  <br />
+</div>
+
+<form #reservationForm="ngForm" *ngIf="reservation" (ngSubmit)="reservationForm.valid && onSubmit()">
+  <div class="form-group horse-selection" *ngIf="!editMode">
+    <label for="horse">Kies een paard voor de reservering</label>
+    <select
+      [ngClass]="{ 'is-invalid': !horseModel.valid && horseModel.dirty }"
+      class="form-control"
+      id="horse"
+      name="horse"
+      [(ngModel)]="reservation.horseId"
+      #horseModel="ngModel"
+      required
+    >
+      <option *ngFor="let horse of horses" [value]="horse._id">
+        {{ horse.officialName }} ({{ horse.commonName }})
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group customer-name">
+    <label for="customerName">Naam van de klant</label>
+    <input
+      [ngClass]="{ 'is-invalid': !nameModel.valid && nameModel.dirty }"
+      [(ngModel)]="reservation.customerName"
+      name="customerName"
+      type="text"
+      class="form-control"
+      id="customerName"
+      #nameModel="ngModel"
+      required
+    />
+  </div>
+
+  <div class="form-group customer-country">
+    <label for="country">Kies een het land van herkomst van de klant</label>
+    <select
+      class="form-control"
+      id="country"
+      name="country"
+      [(ngModel)]="reservation.customerCountry"
+      #country="ngModel"
+      required
+    >
+      <option *ngFor="let country of countryList" [value]="country">
+        {{ country }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group reservation-status" *ngIf="editMode">
+    <label for="status">Status</label>
+    <select
+      class="form-control"
+      id="status"
+      name="status"
+      [(ngModel)]="reservation.active"
+      #status="ngModel"
+      required
+    >
+      <option *ngFor="let status of statusList" [value]="status.value">
+        {{ status.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="submitcontainer">
+    <button type="submit" class="btn btn-success" [disabled]="!reservationForm.form.valid">Opslaan</button>
+  </div>
+</form>
